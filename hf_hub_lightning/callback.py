@@ -5,6 +5,7 @@ from shutil import copy2
 from huggingface_hub import Repository
 from huggingface_hub.constants import ENDPOINT
 from pytorch_lightning import Callback
+from pytorch_lightning.loggers import TensorBoardLogger
 
 
 class HuggingFaceHubCallback(Callback):
@@ -39,5 +40,12 @@ class HuggingFaceHubCallback(Callback):
     def on_train_epoch_end(self, trainer, pl_module):
         with self.repo.commit("Add/Update Model"):
             trainer.save_checkpoint("lit_model.ckpt")
-            for logfile in Path(trainer.log_dir).glob("events*"):
-                copy2(logfile, self.tb_dir)
+
+            if isinstance(trainer.logger, TensorBoardLogger):
+                trainer.logger.experiment.flush()
+                for logfile in Path(trainer.log_dir).glob("events*"):
+                    copy2(logfile, self.tb_dir)
+
+                hparams_filepath = Path(trainer.log_dir) / 'hparams.yaml'
+                if (Path(self.local_dir) / 'hparams.yaml').exists():
+                    copy2(hparams_filepath, self.tb_dir)
