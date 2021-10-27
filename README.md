@@ -14,7 +14,7 @@ pip install hf-hub-lightning
 
 ## Usage
 
-To periodically upload your model ckpt while training, you can do the following...
+To periodically upload your model ckpt and TensorBoard logs while training, you can do the following...
 
 ```python
 import pytorch_lightning as pl
