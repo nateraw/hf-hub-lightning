@@ -2,6 +2,7 @@
 
 A callback for pushing lightning models to the Hugging Face Hub.
 
+**Note:** I made this package for myself, mostly...if folks seem to be interested in it, we'll move this into `huggingface_hub` directly and archive this repo. Since there are a lot of options/considerations, I decided to just post it separately for now. 
 
 ## Setup
 
