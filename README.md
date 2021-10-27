@@ -17,9 +17,10 @@ To periodically upload your model ckpt while training, you can do the following.
 import pytorch_lightning as pl
 from hf_hub_lightning import HuggingFaceHubCallback
 
+train_dataloader = ...
 model = YourCoolModel()
 trainer = pl.Trainer(callbacks=[HuggingFaceHubCallback('your_username/model_id')])
-trainer.fit(model)
+trainer.fit(model, train_dataloader)
 ```
 
 To load your model back from the huggingface hub, just do...
