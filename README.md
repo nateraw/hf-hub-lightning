@@ -1,6 +1,6 @@
 # hf-hub-lightning
 
-<a href="https://colab.research.google.com/github/nateraw/modelcards/blob/main/modelcards_demo.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+<a href="https://colab.research.google.com/github/nateraw/hf-hub-lightning/blob/main/examples/hf_hub_lightning_demo.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 A callback for pushing lightning models to the Hugging Face Hub.
 
